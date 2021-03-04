@@ -1,38 +1,180 @@
-.App {
+/* Global */
+:root {
+  /* Color */
+  --color-count-background: orange;
+  --color-count-text: white;
+  --color-btn: olive;
+
+  /* Font Size */
+  --font-large: 1.75rem;
+  --font-medium: 1.5rem;
+
+  /* Size */
+  --size-spacing: 0.5rem;
+  --size-border-radius: 40px;
+
+  /* Shadow */
+  --shadow: 0 3px 5px 1px darkgrey;
+}
+
+/* Universal */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1000px;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Header */
+.header {
+  padding: calc(var(--size-spacing) * 1.5);
+  border-bottom: dotted 1px olivedrab;
+  font-size: var(--font-large);
+}
+
+.header-count {
+  display: inline-block;
   text-align: center;
+  line-height: calc(var(--size-spacing) * 4);
+  margin-left: var(--size-spacing);
+  width: calc(var(--size-spacing) * 4);
+  height: calc(var(--size-spacing) * 4);
+  background-color: var(--color-count-background);
+  border-radius: 50%;
+  color: var(--color-count-text);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Add form */
+.add-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin-top: calc(var(--size-spacing) * 2);
+  padding: calc(var(--size-spacing) * 1.5);
 }
 
-.App-link {
-  color: #61dafb;
+.add-form-input {
+  width: 100%;
+  padding: var(--size-spacing) calc(var(--size-spacing) * 2);
+  margin-right: calc(var(--size-spacing) * 2);
+  font-size: var(--font-medium);
+  border: none;
+  border-radius: var(--size-border-radius);
+  outline: none;
+  box-shadow: var(--shadow);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.add-form-btn {
+  padding: var(--size-spacing) calc(var(--size-spacing) * 4);
+  background-color: var(--color-btn);
+  border-radius: var(--size-border-radius);
+  color: var(--color-count-text);
+  font-size: var(--font-medium);
+}
+
+/* Habits */
+.habits {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.habits::-webkit-scrollbar {
+  display: none;
+}
+
+.habit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: calc(var(--size-spacing) * 2);
+  margin: calc(var(--size-spacing) * 1.5);
+  border-radius: 4px;
+  font-size: var(--font-medium);
+  box-shadow: var(--shadow);
+}
+
+.habit-text {
+  width: 80%;
+  overflow-wrap: break-word;
+}
+
+.habit-count {
+  display: inline-block;
+  text-align: center;
+  line-height: calc(var(--size-spacing) * 3.5);
+  margin-left: var(--size-spacing);
+  margin-right: calc(var(--size-spacing) * 2);
+  width: calc(var(--size-spacing) * 3.5);
+  height: calc(var(--size-spacing) * 3.5);
+  background-color: var(--color-count-background);
+  border-radius: 50%;
+  color: var(--color-count-text);
+}
+
+.habit-btn {
+  padding: 0;
+  margin-right: var(--size-spacing);
+  font-size: var(--font-large);
+}
+
+.habit-increase,
+.habit-decrease {
+  color: var(--color-btn);
+}
+
+.habit-delete {
+  color: orangered;
+}
+
+/* Buttons */
+.btn {
+  margin: var(--size-spacing);
+  padding: var(--size-spacing) calc(var(--size-spacing) * 3);
+  background-color: var(--color-btn);
+  border-radius: var(--size-border-radius);
+  color: var(--color-count-text);
+  font-size: var(--font-medium);
+}
+
+/* 24rem 이하의 스크린 */
+@media screen and (max-width: 24rem) {
+  :root {
+    --font-large: 1.5rem;
+    --font-medium: 1.25rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .add-form {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .add-form-input {
+    margin-bottom: var(--size-spacing);
+  }
+
+  .habits {
+    margin-top: 0;
+  }
+
+  .habit-text {
+    width: 100%;
+    margin-bottom: var(--size-spacing);
   }
 }
